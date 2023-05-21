@@ -42,15 +42,41 @@ class pars:
         menu = self.driver.find_element(By.XPATH, '/html/body/div[2]/div[2]/div/div')
         menu.click()
 
+    def enter_to_start_of_semester(self):
+        time.sleep(2)
+
+        months = self.driver.find_element(By.XPATH, '/html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table[2]/tbody/tr[1]/td/table/tbody/tr[1]/td/table/tbody/tr/td[5]/span')
+        months.click()
+
+        time.sleep(2)
+
+        years = self.driver.find_element(By.XPATH, '/html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table[2]/tbody/tr[1]/td/table/tbody/tr[1]/td/table/tbody/tr/td[5]/span')
+        years.click()
+
+        time.sleep(2)
+
+        year_2022 = self.driver.find_element(By.ID, 'dateNavigator_cal_yc_3')
+        year_2022.click()
+
+        time.sleep(2)
+
+        september = self.driver.find_element(By.ID, 'dateNavigator_cal_yc_8')
+        september.click()
+
+        time.sleep(2)
+
+        first_day = self.driver.find_element(By.XPATH, '/html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table[2]/tbody/tr[1]/td/table/tbody/tr[2]/td/table/tbody/tr[2]/td[5]')
+        first_day.click()
+
     def schedule_to_db(self, sql):
-        count_days = int(input('Введите количество дней которые нужно спарсить: '))
+        # count_days = int(input('Введите количество дней которые нужно спарсить: '))
 
         def get_next_day():
             next_day = self.driver.find_element(By.XPATH, '//div[@title="Вперед"]')
             next_day.click()
             time.sleep(2)
 
-        for i in range(count_days):
+        for i in range(270):
             print()
             html = self.driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
