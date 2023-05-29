@@ -50,22 +50,22 @@ class pars:
 
         time.sleep(2)
 
-        years = self.driver.find_element(By.XPATH, '/html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table[2]/tbody/tr[1]/td/table/tbody/tr[1]/td/table/tbody/tr/td[5]/span')
-        years.click()
+        # years = self.driver.find_element(By.XPATH, '/html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table[2]/tbody/tr[1]/td/table/tbody/tr[1]/td/table/tbody/tr/td[5]/span')
+        # years.click()
 
-        time.sleep(2)
+        # time.sleep(2)
 
-        year_2022 = self.driver.find_element(By.ID, 'dateNavigator_cal_yc_3')
-        year_2022.click()
+        # year_2022 = self.driver.find_element(By.ID, 'dateNavigator_cal_yc_3')
+        # year_2022.click()
 
-        time.sleep(2)
+        # time.sleep(2)
 
-        september = self.driver.find_element(By.ID, 'dateNavigator_cal_yc_8')
+        september = self.driver.find_element(By.ID, 'dateNavigator_cal_yc_1')
         september.click()
 
         time.sleep(2)
 
-        first_day = self.driver.find_element(By.XPATH, '/html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table[2]/tbody/tr[1]/td/table/tbody/tr[2]/td/table/tbody/tr[2]/td[5]')
+        first_day = self.driver.find_element(By.XPATH, '/html/body/div[5]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr/td/table[2]/tbody/tr[1]/td/table/tbody/tr[2]/td/table/tbody/tr[2]/td[4]')
         first_day.click()
 
     def schedule_to_db(self, sql):
@@ -76,7 +76,7 @@ class pars:
             next_day.click()
             time.sleep(2)
 
-        for i in range(270):
+        for i in range(155):
             print()
             html = self.driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
